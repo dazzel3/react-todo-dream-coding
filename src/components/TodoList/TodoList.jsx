@@ -18,8 +18,8 @@ export default function TodoList({ filter }) {
   const filtered = getFilteredItems(todos, filter);
 
   return (
-    <section className={styles.bg}>
-      <ul>
+    <section className={styles.section}>
+      <ul className={styles.list}>
         {filtered.map((item) => (
           <Todo
             key={item.id}
