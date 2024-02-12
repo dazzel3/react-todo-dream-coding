@@ -31,6 +31,7 @@ body {
   max-width: 500px;
   background: var(--color-bg);
   border-radius: 1rem;
+  overflow: hidden;
   display: flex;
   flex-direction: column;
   -webkit-box-shadow: 3px 4px 12px 0px rgb(143, 196, 239);
@@ -46,4 +47,9 @@ code {
 ul {
   list-style: none;
   padding-left: 0;
+}
+
+button {
+  outline: none;
+  border: none;
 }
