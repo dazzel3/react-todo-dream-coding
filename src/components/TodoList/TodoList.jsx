@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import styles from './TodoList.module.css';
 import AddTodo from '../AddTodo/AddTodo';
+import Todo from '../Todo/Todo';
 
 export default function TodoList() {
   const [todos, setTodos] = useState([
@@ -9,12 +10,14 @@ export default function TodoList() {
   ]);
 
   const handleAdd = (todo) => setTodos([...todos, todo]);
+  const handleDelete = (todo) =>
+    setTodos(todos.filter((item) => item !== todo));
 
   return (
     <section className={styles.bg}>
       <ul>
         {todos.map((item) => (
-          <li key={item.id}>{item.text}</li>
+          <Todo key={item.id} todo={item} onDelete={handleDelete} />
         ))}
       </ul>
       <AddTodo onAdd={handleAdd} />
