@@ -3,7 +3,7 @@ import styles from './TodoList.module.css';
 import AddTodo from '../AddTodo/AddTodo';
 import Todo from '../Todo/Todo';
 
-export default function TodoList() {
+export default function TodoList({ filter }) {
   const [todos, setTodos] = useState([
     { id: '1', text: '공부하기', status: 'active' },
     { id: '2', text: '청소하기', status: 'active' },
@@ -15,11 +15,12 @@ export default function TodoList() {
   const handleChange = (todo) => {
     setTodos(todos.map((item) => (item.id === todo.id ? todo : item)));
   };
+  const filtered = getFilteredItems(todos, filter);
 
   return (
     <section className={styles.bg}>
       <ul>
-        {todos.map((item) => (
+        {filtered.map((item) => (
           <Todo
             key={item.id}
             todo={item}
@@ -31,4 +32,11 @@ export default function TodoList() {
       <AddTodo onAdd={handleAdd} />
     </section>
   );
+}
+
+function getFilteredItems(todos, filter) {
+  if (filter === 'all') {
+    return todos;
+  }
+  return todos.filter((item) => item.status === filter);
 }
