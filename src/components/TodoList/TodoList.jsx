@@ -11,13 +11,21 @@ export default function TodoList() {
 
   const handleAdd = (todo) => setTodos([...todos, todo]);
   const handleDelete = (todo) =>
-    setTodos(todos.filter((item) => item !== todo));
+    setTodos(todos.filter((item) => item.id !== todo.id));
+  const handleChange = (todo) => {
+    setTodos(todos.map((item) => (item.id === todo.id ? todo : item)));
+  };
 
   return (
     <section className={styles.bg}>
       <ul>
         {todos.map((item) => (
-          <Todo key={item.id} todo={item} onDelete={handleDelete} />
+          <Todo
+            key={item.id}
+            todo={item}
+            onDelete={handleDelete}
+            onChange={handleChange}
+          />
         ))}
       </ul>
       <AddTodo onAdd={handleAdd} />
