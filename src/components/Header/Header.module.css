@@ -5,6 +5,10 @@
   background: var(--color-bg-dark);
 }
 
+.button {
+  background-color: transparent;
+}
+
 .filters {
   display: flex;
   gap: 0.6rem;
