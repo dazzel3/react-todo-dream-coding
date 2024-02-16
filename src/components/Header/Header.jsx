@@ -1,10 +1,10 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import styles from './Header.module.css';
 import { MdOutlineDarkMode, MdDarkMode } from 'react-icons/md';
-import { DarkModeContext } from '../../context/DarkModeContext';
+import { useDarkMode } from '../../context/DarkModeContext';
 
 export default function Header({ filters, filter, onChange }) {
-  const { darkMode, toggleMode } = useContext(DarkModeContext);
+  const { darkMode, toggleMode } = useDarkMode();
 
   return (
     <header className={styles.header}>
