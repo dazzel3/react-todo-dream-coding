@@ -8,6 +8,12 @@
 
 .button {
   background-color: transparent;
+  cursor: pointer;
+  transition: all 1s ease-out;
+}
+
+.button:hover {
+  transform: scale(1.1);
 }
 
 .filters {
