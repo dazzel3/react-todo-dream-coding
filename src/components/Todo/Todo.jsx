@@ -3,7 +3,7 @@ import { TiDelete } from 'react-icons/ti';
 import styles from './Todo.module.css';
 
 export default function Todo({ todo, onDelete, onChange }) {
-  const { text, status } = todo;
+  const { id, text, status } = todo;
   const handleClick = () => onDelete(todo);
   const handleChange = (e) => {
     const status = e.target.checked ? 'done' : 'active';
@@ -15,11 +15,11 @@ export default function Todo({ todo, onDelete, onChange }) {
       <input
         className={styles.checkbox}
         type='checkbox'
-        id={todo.id}
+        id={id}
         checked={status === 'done'}
         onChange={handleChange}
       />
-      <label className={styles.text} htmlFor={todo.id}>
+      <label className={styles.text} htmlFor={id}>
         {text}
       </label>
       <button className={styles.button} onClick={handleClick}>
