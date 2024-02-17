@@ -23,7 +23,7 @@ export default function AddTodo({ onAdd }) {
       <input
         className={styles.input}
         type='text'
-        placeholder='Add Todo'
+        placeholder='Todo List를 작성해보세요!'
         value={text}
         onChange={handleChange}
       />
